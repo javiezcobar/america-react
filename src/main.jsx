@@ -8,7 +8,6 @@ import NextMatch from './component/NextMatch.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
     <NextMatch />
   </React.StrictMode>,
 );

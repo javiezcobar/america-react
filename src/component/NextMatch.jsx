@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import redaxios from 'redaxios';
 import { load } from 'cheerio';
 import moment from 'moment-timezone';
+import 'moment/locale/es'
 
 function NextMatch() {
   const [ligue, setLigue] = useState('');
@@ -21,7 +22,9 @@ function NextMatch() {
         const hour = $('#mod_nextLastMatch > div.panel > div.panel-body > a > div:nth-child(3)').html();
         const date = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a').attr('starttime')
 
-        const localDate = moment(date).tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('MMMM Do YYYY');
+        moment.locale('es')
+        moment.localeData('es')
+        const localDate = moment(date).tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('MMMM D YYYY');
         const localHour = moment(date).tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('h:mm:ss a');
 
         setLigue(ligue);
@@ -48,6 +51,3 @@ function NextMatch() {
 }
 
 export default NextMatch;
-
-
-"html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a > div:nth-child(5)"
