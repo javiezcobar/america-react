@@ -1,0 +1,16 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+    background-color: white;
+    color: black;
+}
+
+.card__body{
+    display: flex;
+}
+
+.card__body-team__local {
+    display: flex;
+   align-items: flex-start;
+}
