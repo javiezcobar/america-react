@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import redaxios from 'redaxios';
 import { load } from 'cheerio';
+import moment from 'moment-timezone';
 
 function NextMatch() {
   const [ligue, setLigue] = useState('');
@@ -19,11 +20,15 @@ function NextMatch() {
         const visit = $('#mod_nextLastMatch > div.panel > div.panel-body > a > div:nth-child(4)').html();
         const hour = $('#mod_nextLastMatch > div.panel > div.panel-body > a > div:nth-child(3)').html();
         const date = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a').attr('starttime')
+
+        const localDate = moment(date).tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('MMMM Do YYYY');
+        const localHour = moment(date).tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('h:mm:ss a');
+
         setLigue(ligue);
         setLocal(local);
         setVisit(visit);
-        setHour(hour);
-        setDate(date);
+        setHour(localHour);
+        setDate(localDate);
         
       } catch (error) {
         console.error(error);
