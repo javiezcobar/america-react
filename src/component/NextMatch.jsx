@@ -18,14 +18,14 @@ function NextMatch() {
         const response = await redaxios.get('/api');
         const $ = load(response.data);
         const ligue = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a > div:nth-child(1)').text();
-        const local = $('#mod_nextLastMatch > div.panel > div.panel-body > a > div:nth-child(2)').html();
-        const visit = $('#mod_nextLastMatch > div.panel > div.panel-body > a > div:nth-child(4)').html();
+        const local = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a > div:nth-child(2)').html();
+        const visit = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a > div:nth-child(4)').html();
         const date = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a').attr('starttime');
 
         moment.locale('es');
         moment.localeData('es');
         const localDate = moment(date).tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('MMMM D YYYY');
-        const localHour = moment(date).tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('h:mm:ss a');
+        const localHour = moment(date).tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('h:mm a');
 
         setLigue(ligue);
         setLocal(local);
@@ -52,11 +52,14 @@ function NextMatch() {
           <div className='card__body-team__local' dangerouslySetInnerHTML={{ __html: local }} />
           <div className='card__body-team__visit' dangerouslySetInnerHTML={{ __html: visit }} />
         </div>
-
       </div>
+      <div className='vr-100'></div>
       <div className='card__info'>
+        <div className='card__info-date'>
         <div dangerouslySetInnerHTML={{ __html: hour }} />
         <div dangerouslySetInnerHTML={{ __html: date }} />
+        </div>
+        <button className='card-button'>Resumen</button>
       </div>
     </div>
   );

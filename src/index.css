@@ -9,6 +9,10 @@
     --gray: #999999;
 }
 
+body {
+    background-color: var(--black);
+}
+
 h1,h2,h3{
     font-weight: 900;
 }
