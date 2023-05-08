@@ -4,13 +4,14 @@ import './styles/reset.css'
 import './index.css'
 import NextMatch from './component/NextMatch.jsx'
 import LastMatch from './component/LastMatch.jsx'
+import TeamStanding from './component/TeamStanding.jsx'
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <NextMatch />
-    <LastMatch />
+    
+    <TeamStanding />
   </React.StrictMode>,
 );
 

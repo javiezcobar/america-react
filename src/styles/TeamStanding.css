@@ -1,0 +1,43 @@
+table {
+    background-color: var(--white);
+}
+
+tr {
+    vertical-align: middle;
+}
+
+th {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gray);
+    text-align: left;
+    vertical-align: middle;
+    padding: 6px;
+}
+
+td {
+    text-align: left;
+    vertical-align: middle;
+    padding: .5px 6px;
+}
+
+.number-box div {
+    padding: 6px;
+    color: var(--white);
+}
+
+
+.img-box-c img {
+    width: 25px;
+}
+
+.name {
+    width: 300px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.name > a {
+    color: var(--black);
+    text-decoration: none;
+}
