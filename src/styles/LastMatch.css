@@ -43,6 +43,7 @@
 .team-line-item {
     display: flex;
     align-items: center;
+    gap: 9px;
 }
 
 .card__body-team__local--america, .card__body-team__visit--america {

@@ -24,7 +24,7 @@ function NextMatch() {
         const visitingTeam = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(4)').html();
         const localScore = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(3) > span > span:nth-child(1)').text();
         const visitScore = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(3) > span > span:nth-child(2)').text();
-        const matchDate = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a').attr('starttime');
+        const matchDate = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a').attr('starttime');
 
         moment.locale('es');
         moment.localeData('es');
