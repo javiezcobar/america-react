@@ -41,18 +41,25 @@ function NextMatch() {
     fetchData();
   }, []);
 
-  return (<div className='card'>
-    <div className='card__title'>
-      <h3>Proximo partido</h3>
-      <div dangerouslySetInnerHTML={{ __html: ligue }} />
+  return (
+    <div className='card'>
+      <div className='card__text-container'>
+        <div className='card__title'>
+          <h3>Proximo partido</h3>
+          <span dangerouslySetInnerHTML={{ __html: ligue }} />
+        </div>
+        <div className='card__body'>
+          <div className='card__body-team__local' dangerouslySetInnerHTML={{ __html: local }} />
+          <div className='card__body-team__visit' dangerouslySetInnerHTML={{ __html: visit }} />
+        </div>
+
+      </div>
+      <div className='card__info'>
+        <div dangerouslySetInnerHTML={{ __html: hour }} />
+        <div dangerouslySetInnerHTML={{ __html: date }} />
+      </div>
     </div>
-    <div className='card__body'>
-      <div className='card__body-team__local' dangerouslySetInnerHTML={{ __html: local }} />
-      <div dangerouslySetInnerHTML={{ __html: visit }} />
-      <div dangerouslySetInnerHTML={{ __html: hour }} />
-      <div dangerouslySetInnerHTML={{ __html: date }} />
-    </div>
-  </div>);
+  );
 }
 
 export default NextMatch;

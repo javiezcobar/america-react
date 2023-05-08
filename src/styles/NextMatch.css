@@ -1,16 +1,44 @@
 .card {
     display: flex;
-    flex-direction: column;
-    width: 420px;
+    gap: 10px;
+    padding: 10px;
     background-color: white;
     color: black;
 }
 
-.card__body{
+.card__text-container {
     display: flex;
+    gap: 10px;
+    flex-direction: column;
 }
 
-.card__body-team__local {
+.card__title h3 {
+    color: var(--red);
+}
+
+.card__title span {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gray);
+}
+
+.card__body{
     display: flex;
-   align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card__body-team__local, .card__body-team__visit {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 2px 0;
+    width: 250px;
+}
+
+.team-shield {
+    order: -1;
+    width: 25px;
 }

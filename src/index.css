@@ -1,0 +1,18 @@
+:root {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+
+    /* colors */
+    --black: #1e1e1e;
+    --red: #d91c22;
+    --white: #FFFFFF;
+    --gray: #999999;
+}
+
+h1,h2,h3{
+    font-weight: 900;
+}
+
+h3{
+    font-size: 16px;
+}
