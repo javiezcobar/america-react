@@ -3,7 +3,7 @@ import redaxios from 'redaxios';
 import { load } from 'cheerio';
 import moment from 'moment-timezone';
 import 'moment/locale/es'
-import '../styles/NextMatch.css'
+import '../styles/LastMatch.css'
 
 function NextMatch() {
   const [league, setLeague] = useState('');
@@ -11,16 +11,19 @@ function NextMatch() {
   const [visitingTeam, setVisitingTeam] = useState('');
   const [matchdate, setMatchDate] = useState('');
   const [matchTime, setMatchTime] = useState('');
-
+  const [localScore, setLocalScore] = useState('');
+  const [visitScore, setVisitScore] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await redaxios.get('/api');
         const $ = load(response.data);
-        const league = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a > div:nth-child(1)').text();
-        const localTeam = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a > div:nth-child(2)').html();
-        const visitingTeam = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a > div:nth-child(4)').html();
+        const league = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(1) > div:nth-child(2)').text();
+        const localTeam = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(2)').html();
+        const visitingTeam = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(4)').html();
+        const localScore = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(3) > span > span:nth-child(1)').text();
+        const visitScore = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(3) > span > span:nth-child(2)').text();
         const matchDate = $('html > body > main > section:nth-child(2) > div > div:nth-child(3) > div.panel > div.panel-body > a').attr('starttime');
 
         moment.locale('es');
@@ -33,6 +36,8 @@ function NextMatch() {
         setVisitingTeam(visitingTeam);
         setMatchDate(localDate)
         setMatchTime(localTime);
+        setLocalScore(localScore);
+        setVisitScore(visitScore);
         
       } catch (error) {
         console.error(error);
@@ -54,16 +59,19 @@ function NextMatch() {
     <div className='card'>
       <div className='card__text-container'>
         <div className='card__title'>
-          <h3>Próximo partido</h3>
+          <h3>Último partido</h3>
           <span dangerouslySetInnerHTML={{ __html: league }} />
         </div>
         <div className='card__body'>
           <div className={localTeamClass}>
             <div className='team-line-item' dangerouslySetInnerHTML={{ __html: localTeam }} />
+            <div className='team-line-item' dangerouslySetInnerHTML={{ __html: localScore}} />
           </div>
           <div className={visitingTeamClass}>
-            <div className='team-line-item' dangerouslySetInnerHTML={{ __html: visitingTeam }} />
-          </div>  
+          <div className='team-line-item' dangerouslySetInnerHTML={{ __html: visitingTeam }} />
+          <div className='team-line-item' dangerouslySetInnerHTML={{ __html: visitScore }} />
+          </div>
+          
         </div>
       </div>
       <div className='vr-100'></div>
@@ -79,3 +87,5 @@ function NextMatch() {
 }
 
 export default NextMatch;
+
+"html > body > main > section:nth-child(2) > div > divnth-child(4) > div > divnth-child(2) > a > divnth-child(1) > divnth-child(2)"
