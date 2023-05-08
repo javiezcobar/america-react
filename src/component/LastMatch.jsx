@@ -5,7 +5,7 @@ import moment from 'moment-timezone';
 import 'moment/locale/es'
 import '../styles/LastMatch.css'
 
-function NextMatch() {
+function LastMatch() {
   const [league, setLeague] = useState('');
   const [localTeam, setLocalTeam] = useState('');
   const [visitingTeam, setVisitingTeam] = useState('');
@@ -86,6 +86,6 @@ function NextMatch() {
   );
 }
 
-export default NextMatch;
+export default LastMatch;
 
 "html > body > main > section:nth-child(2) > div > divnth-child(4) > div > divnth-child(2) > a > divnth-child(1) > divnth-child(2)"
