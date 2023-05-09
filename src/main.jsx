@@ -2,16 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './styles/reset.css'
 import './index.css'
-import NextMatch from './component/NextMatch.jsx'
-import LastMatch from './component/LastMatch.jsx'
-import TeamStanding from './component/TeamStanding.jsx'
+import Gallery from './component/Gallery';
+
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    
-    <TeamStanding />
+    <Gallery/>
   </React.StrictMode>,
 );
 
