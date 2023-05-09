@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import redaxios from 'redaxios';
 import { load } from 'cheerio';
+import '../styles/Gallery.css'
 
 function Gallery() {
   const [images, setImages] = useState([]);
@@ -29,14 +30,12 @@ function Gallery() {
   }, []);
 
   return (
-    <div>
+    <div className='gallery--container'>
       {images.map((img, i) => (
-        <img key={i} src={img.src} alt={`Image ${i}`} />
+        <img className='gallery--img' key={i} src={img.src} alt={`Image ${i}`} />
       ))}
     </div>
   );
 }
 
 export default Gallery;
-
-//rss del america twitter https://rsshub.app/twitter/user/AmericadeCali o https://nitter.net/AmericadeCali/rss

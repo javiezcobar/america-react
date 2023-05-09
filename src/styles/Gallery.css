@@ -1,0 +1,8 @@
+.gallery--container {
+    display: flex;
+    gap: 4px;
+}
+
+.gallery--img {
+    max-width: 350px;
+}
