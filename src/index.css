@@ -1,16 +1,23 @@
-:root {
+* {
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
+}
+
+:root {
 
     /* colors */
     --black: #1e1e1e;
     --red: #d91c22;
     --white: #FFFFFF;
+    --white-20: rgba(255, 255, 255, 0.20);
     --gray: #999999;
+    
 }
 
 body {
-    background-color: var(--black);
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    background-color: var(--red);
 }
 
 h1,h2,h3{
@@ -19,4 +26,10 @@ h1,h2,h3{
 
 h3{
     font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
 }

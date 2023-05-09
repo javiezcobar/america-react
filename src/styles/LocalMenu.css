@@ -1,0 +1,57 @@
+.localMenu__container {
+    display: flex;
+    max-width: 1440px;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 20px;
+}
+
+.logo__container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo{
+    width: 50px;
+}
+
+.logo__name {
+    font-size: 48px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--white);
+}
+
+.globalMenu__button i {
+    width: 20px;
+}
+
+.globalMenu__nav {
+    display: flex;
+    align-items: stretch;
+}
+
+.globalMenu__nav__ul {
+    display: flex;
+    flex-grow: 1;
+    gap: 12px;
+    
+   
+}
+
+.globalMenu__nav__item {
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    align-items: center;
+    padding: 0px 10px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.globalMenu__nav__item a {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 900;
+}
