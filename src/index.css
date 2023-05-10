@@ -14,6 +14,10 @@
     
 }
 
+html {
+    margin: 0 auto;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
@@ -24,6 +28,10 @@ h1,h2,h3{
     font-weight: 900;
 }
 
+h2 {
+    font-size: 32px;
+}
+
 h3{
     font-size: 16px;
 }
@@ -32,4 +40,56 @@ a {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
+}
+
+.h2Title {
+    display:block;
+    margin: 20px 0;
+    color: var(--white);
+}
+
+.h2Title-b {
+    display:block;
+    margin: 20px 0;
+    color: var(--black);
+}
+
+
+.h2Title::after, .h2Title-b::after {
+    display:block;
+    clear:both;
+    content : "";
+    position: relative;
+    left    : 0;
+    bottom  : 0;
+    max-width:250px;
+    height  : 1px;
+    width   : 8%;  /* or 100px */
+    border-bottom:3px solid var(--red);
+    padding:4px 0px;
+}
+
+.container-grid{
+    display: grid;
+    max-width: 1440px;
+    padding: 0 20px;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 5px;
+}
+
+.matchContainer {
+    padding: 10px 20px;
+    background-color: var(--black);
+    
+}
+
+.matchContainer-w {
+    padding: 10px 20px;
+    background-color: var(--white);
+}
+
+.container-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
 }

@@ -31,8 +31,8 @@ td {
     width: 25px;
 }
 
-.name {
-    width: 300px;
+td {
+    
     font-size: 14px;
     font-weight: 600;
 }
@@ -40,4 +40,5 @@ td {
 .name > a {
     color: var(--black);
     text-decoration: none;
+    width: 300px;
 }
