@@ -1,0 +1,3 @@
+/api/* https://es.besoccer.com/equipo/america-cali/:splat 200
+/nitter/* https://nitter.net/AmericadeCali/rss/:splat 200
+/america/* https://www.americadecali.co/:splat 200
