@@ -7,21 +7,22 @@
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
 [[redirects]]
-  from = "/api"
+  from = "/api/*"
   to = "https://es.besoccer.com/equipo/america-cali/:splat"
   status = 200
+  headers = { Access-Control-Allow-Origin = "*" }
 
 [[redirects]]
-  from = "/nitter"
+  from = "/nitter/*"
   to = "https://nitter.net/AmericadeCali/rss/:splat"
   status = 200
+  headers = { Access-Control-Allow-Origin = "*" }
 
 [[redirects]]
-  from = "/america"
+  from = "/america/*"
   to = "https://www.americadecali.co/:splat"
   status = 200
-
-
+  headers = { Access-Control-Allow-Origin = "*" }
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
   #[dev]
