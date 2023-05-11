@@ -8,6 +8,9 @@ import LocalMenu from './component/LocalMenu';
 import NextMatch from './component/NextMatch'
 import LastMatch from './component/LastMatch'
 import TeamStandings from './component/TeamStanding'
+import News from './component/News';
+
+
 
 
 
@@ -31,6 +34,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <TeamStandings />
         </div>
       </div>
+    </div>
+    <div className='section-news'>
+        <h2 className='h2Title-b'>Noticias</h2>
+        <News />
     </div>
   </React.StrictMode>,
 );

@@ -17,6 +17,12 @@ export default defineConfig({
         secure: false,
         rewrite: (path) => path.replace(/^\/nitter/, ""),
       },
+      "/america": {
+        target: 'https://www.americadecali.co',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/america/, ""),
+      },
     },
   },
   plugins: [react()],
