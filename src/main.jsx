@@ -41,8 +41,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </div>
   </React.StrictMode>,
 );
-
-/*
-para que el desarrollo funcione en netlify
-https://rubenr.dev/es/errores-cors-vite-vue/
-*/
