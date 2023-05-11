@@ -8,13 +8,13 @@
   ## Not needed for static site generators.
 [[redirects]]
   from = "/api/*"
-  to = "https://es.besoccer.com/equipo/america-cali/:splat"
+  to = "https://es.besoccer.com/equipo/america-cali"
   status = 200
   headers = { Access-Control-Allow-Origin = "*" }
 
 [[redirects]]
   from = "/nitter/*"
-  to = "https://nitter.net/AmericadeCali/rss/:splat"
+  to = "https://nitter.net/AmericadeCali/rss"
   status = 200
   headers = { Access-Control-Allow-Origin = "*" }
 
