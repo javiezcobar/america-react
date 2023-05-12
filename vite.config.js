@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy:{
       "/api": {
-        target: 'https://es.besoccer.com/equipo/america-cali',
+        target: '/.netlify/functions/proxy',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ""),

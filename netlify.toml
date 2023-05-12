@@ -1,33 +1,26 @@
-# example netlify.toml
 [build]
   command = "vite build"
   functions = "netlify/functions"
   publish = "dist"
 
-  ## Uncomment to use this redirect for Single Page Applications like create-react-app.
-  ## Not needed for static site generators.
-[[redirects]]
-  from = "/api/*"
-  to = "https://es.besoccer.com/equipo/america-cali"
-  status = 200
-  headers = { Access-Control-Allow-Origin = "*" }
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Sec-Fetch-Mode = "no-cors"
 
 [[redirects]]
-  from = "/nitter/*"
+  from = "/api"
+  to = "es.besoccer.com/equipo/america-cali:splat"
+  status = 200
+
+
+[[redirects]]
+  from = "/nitter"
   to = "https://nitter.net/AmericadeCali/rss"
   status = 200
-  headers = { Access-Control-Allow-Origin = "*" }
 
 [[redirects]]
   from = "/america/*"
   to = "https://www.americadecali.co/:splat"
   status = 200
-  headers = { Access-Control-Allow-Origin = "*" }
-  ## (optional) Settings for Netlify Dev
-  ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
-  #[dev]
-  #  command = "yarn start" # Command to start your dev server
-  #  port = 3000 # Port that the dev server will be listening on
-  #  publish = "dist" # Folder with the static content for _redirect file
-
-  ## more info on configuring this file: https://docs.netlify.com/configure-builds/file-based-configuration/
