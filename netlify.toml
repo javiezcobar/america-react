@@ -3,16 +3,17 @@
   functions = "netlify/functions"
   publish = "dist"
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Sec-Fetch-Mode = "no-cors"
+#[[headers]]
+#  for = "/*"
+#  [headers.values]
+#    Access-Control-Allow-Origin = "*"
+#    Sec-Fetch-Mode = "no-cors"
 
 [[redirects]]
   from = "/api"
   to = "es.besoccer.com/equipo/america-cali:splat"
   status = 200
+  headers = "{Access-Control-Allow-Origin = "*"}"
 
 
 [[redirects]]
