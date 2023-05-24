@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import puppeteer from 'puppeteer';
+import redaxios from 'redaxios';
+import { load } from 'cheerio';
 import moment from 'moment-timezone';
 import 'moment/locale/es'
-import '../styles/LastMatch.css';
+import '../styles/LastMatch.css'
 
 function LastMatch() {
   const [league, setLeague] = useState('');
   const [localTeam, setLocalTeam] = useState('');
   const [visitingTeam, setVisitingTeam] = useState('');
-  const [matchDate, setMatchDate] = useState('');
+  const [matchdate, setMatchDate] = useState('');
   const [matchTime, setMatchTime] = useState('');
   const [localScore, setLocalScore] = useState('');
   const [visitScore, setVisitScore] = useState('');
@@ -16,18 +17,14 @@ function LastMatch() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
-        await page.goto('https://es.besoccer.com/equipo/america-cali'); // url del sitio
-
-        const league = await page.$eval('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(1) > div:nth-child(2)', element => element.textContent);
-        const localTeam = await page.$eval('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(2)', element => element.innerHTML);
-        const visitingTeam = await page.$eval('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(4)', element => element.innerHTML);
-        const localScore = await page.$eval('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(3) > span > span:nth-child(1)', element => element.textContent);
-        const visitScore = await page.$eval('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(3) > span > span:nth-child(2)', element => element.textContent);
-        const matchDate = await page.$eval('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a', element => element.getAttribute('starttime'));
-
-        await browser.close();
+        const response = await redaxios.get('/api');
+        const $ = load(response.data);
+        const league = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(1) > div:nth-child(2)').text();
+        const localTeam = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(2)').html();
+        const visitingTeam = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(4)').html();
+        const localScore = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(3) > span > span:nth-child(1)').text();
+        const visitScore = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(3) > span > span:nth-child(2)').text();
+        const matchDate = $('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a').attr('starttime');
 
         moment.locale('es');
         moment.localeData('es');
@@ -41,12 +38,12 @@ function LastMatch() {
         setMatchTime(localTime);
         setLocalScore(localScore);
         setVisitScore(visitScore);
+        
       } catch (error) {
         console.error(error);
         setTitle('Ocurrió un error');
       }
     };
-
     fetchData();
   }, []);
 
@@ -90,3 +87,5 @@ function LastMatch() {
 }
 
 export default LastMatch
+
+"html > body > main > section:nth-child(2) > div > divnth-child(4) > div > divnth-child(2) > a > divnth-child(1) > divnth-child(2)"

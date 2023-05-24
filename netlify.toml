@@ -10,13 +10,6 @@
 #    Sec-Fetch-Mode = "no-cors"
 
 [[redirects]]
-  from = "/api"
-  to = "es.besoccer.com/equipo/america-cali:splat"
-  status = 200
-  headers = "{Access-Control-Allow-Origin = "*"}"
-
-
-[[redirects]]
   from = "/nitter"
   to = "https://nitter.net/AmericadeCali/rss"
   status = 200
