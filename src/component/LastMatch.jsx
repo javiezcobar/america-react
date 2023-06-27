@@ -18,7 +18,7 @@ function LastMatch() {
       try {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto('https://es.besoccer.com/equipo/america-cali'); // url del sitio
+        await page.goto('/api');
 
         const league = await page.$eval('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(1) > div:nth-child(2)', element => element.textContent);
         const localTeam = await page.$eval('html > body > main > section:nth-child(2) > div > div:nth-child(4) > div > div:nth-child(2) > a > div:nth-child(2)', element => element.innerHTML);
@@ -81,7 +81,7 @@ function LastMatch() {
       <div className='card__info'>
         <div className='card__info-date'>
         <div dangerouslySetInnerHTML={{ __html: matchTime }} />
-        <div dangerouslySetInnerHTML={{ __html: matchdate }} />
+        <div dangerouslySetInnerHTML={{ __html: matchDate }} />
         </div>
         <button className='card-button'>Resumen</button>
       </div>
